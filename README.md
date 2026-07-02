@@ -2,6 +2,7 @@ Taller Grupal de Principios Solid
 Intregrantes: Arturo Angamarca, Mateo Peraltal, Juan Diego Guerrero
 ---------------------------------------------------------------------------------------------------------------------
 1. Analisis del Problema
+
 ¿Qué problemas puede ocasionar un sistema altamente acoplado?
 
 Un sistema altamente acoplado (donde las clases dependen excesivamente y de forma directa unas de otras) genera lo que en ingeniería de software se conoce como un diseño rígido o "código espagueti". Los principales problemas que ocasiona son:
