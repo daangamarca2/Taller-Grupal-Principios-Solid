@@ -1,8 +1,35 @@
 Taller Grupal de Principios Solid
 Intregrantes: Arturo Angamarca, Mateo Peraltal, Juan Diego Guerrero
-1. Diagrama UML
+---------------------------------------------------------------------------------------------------------------------
+1. Analisis del Problema
+¿Qué problemas puede ocasionar un sistema altamente acoplado?
+
+Un sistema altamente acoplado (donde las clases dependen excesivamente y de forma directa unas de otras) genera lo que en ingeniería de software se conoce como un diseño rígido o "código espagueti". Los principales problemas que ocasiona son:
+
+- Efecto dominó (Fragilidad): Al modificar una línea de código o una clase, es muy probable que se rompan otras partes del sistema en cascada porque dependen fuertemente de esa implementación.
+- Dificultad de mantenimiento: Entender cómo funciona un solo módulo requiere leer y entender todo el sistema, lo que hace que buscar y arreglar errores (debugging) sea lento, frustrante y costoso.
+- Imposibilidad de reutilización: Como las clases están amarradas a herramientas específicas (ej. un Jugador amarrado a una BaseDatosMySQL), no puedes extraer esa clase para usarla en otro proyecto sin llevarte todo el código sobrante con ella.
+- Difícil de testear: Es casi imposible realizar pruebas unitarias (Unit Testing) porque no se puede aislar una clase de sus dependencias para probarla de forma individual.
+
+2. ¿Qué ventajas ofrece SOLID?
+Aplicar los principios SOLID transforma un sistema rígido en una arquitectura flexible, escalable y profesional. Sus principales ventajas son:
+
+- Escalabilidad ágil (Extensibilidad): Permite agregar nuevas funcionalidades (como los nuevos integrantes Médico o Comentarista) simplemente creando nuevas clases, sin necesidad de modificar o romper el código que ya está en producción.
+- Alta mantenibilidad: El código resulta limpio, modular y predecible. Cada clase tiene un propósito claro, lo que facilita que nuevos programadores entiendan el proyecto rápidamente.
+- Bajo acoplamiento y Alta cohesión: Los módulos se vuelven independientes al comunicarse a través de interfaces (abstracciones) en lugar de depender de clases concretas.
+- Facilidad para pruebas: Al tener responsabilidades únicas y dependencias invertidas, es muy sencillo crear "mocks" (objetos simulados) para probar cada pieza del software de forma automatizada.
+
+3. ¿Qué principio consideran más importante y por qué?
+
+Consideramos que el principio más importante es el Principio de Responsabilidad Única (SRP - Single Responsibility Principle), ya que actúa como el cimiento fundamental de todos los demás principios.
+
+¿Por qué? Si una clase hace demasiadas cosas y tiene múltiples responsabilidades (no cumple SRP), será matemáticamente imposible mantenerla cerrada a modificaciones (violando el principio OCP), probablemente forzará la creación de interfaces gigantes y genéricas (violando el principio ISP) y acumulará múltiples dependencias que dificultarán la abstracción (violando el principio DIP).
+Al aplicar correctamente el SRP, el código se divide naturalmente en piezas pequeñas, enfocadas y cohesivas, lo que hace que implementar el resto de los principios SOLID sea un proceso casi automático.
+
+2. Diagrama UML
 <img width="9758" height="3083" alt="Diaagrama UML" src="https://github.com/user-attachments/assets/9cfd5006-2b54-4d8f-8df4-3fdfcd8a0cc1" />
-2. Codigo en Python
+
+3. Codigo en Python
 
 from abc import ABC, abstractmethod
 
@@ -153,7 +180,7 @@ if __name__ == "__main__":
         else:
             print("Opción inválida.")
 
-3. Capturas del codigo en ejecucion
+4. Capturas del codigo en ejecucion
 <img width="505" height="354" alt="image" src="https://github.com/user-attachments/assets/8259faeb-7eb3-4a1f-97b6-a1e54e970ec6" />
 <img width="474" height="354" alt="image" src="https://github.com/user-attachments/assets/a48d62b0-f4b0-4e9c-9802-084f326eab2c" />
 <img width="482" height="354" alt="image" src="https://github.com/user-attachments/assets/7235bb85-f547-4183-93e8-27e1567aeee1" />
